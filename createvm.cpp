@@ -246,28 +246,12 @@ void       CreateVmlist::CreateVM(const QString &vminfo)
         qsl.clear();
         val="";
     }
-
-    switch(nums_vm)
-    {
-        case 1:
-        lskey = width()/2+300;
-        break;
-        case 2:
-        lskey = width()/2+250;
-        break;
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        lskey = width()/2+200-60*(nums_vm/2);
-        break;
-        default:
-        lskey = width()/2+200-180;
-        break;
-
-    }
+    if(nums_vm <=4)
+        lskey = width_/2-100*(nums_vm/2);
+    else
+        lskey = width_/2-300;
     if(lskey <=0 )
-        lskey = 0;
+        lskey = width_/2;
 
 
 

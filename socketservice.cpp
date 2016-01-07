@@ -439,11 +439,11 @@ void    SocketService::gethostlist_slots()
  ******/
 void    SocketService::getconnectinfo_slots(const QString &vminfo)
 {
-
+    
     std::string str1 = httphead+"Hello";
     std::string strmg = "";
     http->Post(str1, "", strmg);
-    //qDebug() << "regidter hello:"<<strmg.c_str();
+    qDebug() << "regidter hello:"<<strmg.c_str();
     if(strmg.length() <= 0)
     {
         emit  this->signals_connectError(1);
@@ -460,7 +460,7 @@ void    SocketService::getconnectinfo_slots(const QString &vminfo)
     checkmigrate = vmneeds.at(0)+"\n"+vmneeds.at(1);
     vmstatus = vmneeds.at(2).toLocal8Bit().data();
     logipslots(vmneeds.at(1));
-    //qDebug() <<"params:"<<params;
+    qDebug() <<"params:"<<params;
 
     std::string str12 = httphead+"getConnectInfo";
     //"http://10.3.3.59/index.php?r=api/getConnectInfo";	//getConnectInfo
@@ -468,6 +468,7 @@ void    SocketService::getconnectinfo_slots(const QString &vminfo)
     //"username=qsau_test_1&password=qsau_test_1&type=1&hostId=41&protocol=spicy";
     //check vm information is able to  use then post,this info contain hostId
     strConnectInfo = "";
+    qDebug() <<"checkinfo:"<<str21.c_str();
     http->Post(str12, str21, strConnectInfo);
 
     qDebug() <<"*********ConnectInfo:"<<strConnectInfo.c_str();
@@ -706,12 +707,13 @@ void    SocketService::JSParse(const std::string  &strmsg)
  *
  * the  function  is check if  able to  connect  the  server.
  *
- *
+ *  when  clicked the mouse right
  *
  *
  *************/
 void    SocketService::isableconnectslots(const QString &vmid)
 {
+    qDebug()<<"signals_connect";
     QString   params = "&hostId="+ vmid;
     std::string   hostid = params.toLocal8Bit().data();
     std::string   httpinfo =  httphead + "GetCbConnect";

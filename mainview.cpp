@@ -412,7 +412,7 @@ void    mainview::emit_widgets(int  id)
             {
                 //vmlist display  order  in  the  windows
                 if(this->hostlist->nums_vm <= 18)
-                        ui->widgetstack->resize(this->width()*9/10,510);
+                        ui->widgetstack->resize(this->width()*9/10,550);
                 else
                 {
                         ui->widgetstack->resize(this->width()*9/10,700);
@@ -596,6 +596,7 @@ void    mainview::reflushlisttable(const QString &vmhlist)
     qDebug() <<"=========================";
     qDebug() << vmhlist;
     ui->widgetstack->resize(this->width()*9/10,100);
+    this->hostlist->width_ = this->width()*9/10;
     if(this->hostlist->vmdata.compare(vmhlist) != 0)
         this->hostlist->CreateVM(vmhlist);
     emit_widgets(4);

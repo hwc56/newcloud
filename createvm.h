@@ -13,6 +13,7 @@ public:
         void    Reset();
         QString  vmdata;//check if the same data every reflush.
         int     nums_vm;//the number of vmachine
+        int     width_;
 private:
         void    SetStatusVm(QWidget   *btn,const QString &);
 signals:
