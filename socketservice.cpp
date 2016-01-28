@@ -453,8 +453,8 @@ void    SocketService::getconnectinfo_slots(const QString &vminfo)
 
     QStringList   vmneeds = vminfo.split("\t");
     QString  params = "&type="+vmneeds.at(vmneeds.size()-1)+"&hostId="+vmneeds.at(1)+"&protocol="+vmneeds.at(3); 
-    if(QString("0").compare(vmneeds.at(2))==0) 
-        startvmslots(vmneeds.at(1));
+    //if(QString("0").compare(vmneeds.at(2))==0) 
+    //    startvmslots(vmneeds.at(1));
     //this is for migrate 
     checkmigrate = "";
     checkmigrate = vmneeds.at(0)+"\n"+vmneeds.at(1);
